@@ -39,7 +39,8 @@
             .value();
 
             vm.teamStanding = _.chain(data.standings)
-            .flatten("divisionStandings")
+            .map("divisionStandings")
+            .flatten()
             .find({ "teamId": vm.teamId })
             .value();
 
