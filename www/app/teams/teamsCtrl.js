@@ -1,17 +1,19 @@
-(function(){
+(function() {
+    'use strict';
 
-	"use strict";
+    angular.module('eliteApp').controller('teamsCtrl', ['$scope', 'eliteApi', teamsCtrl]);
 
-	var app = angular.module("eliteApp");
+    function teamsCtrl($scope, eliteApi) {
+        var vm = this;
 
-	var teamsCtrl = function(eliteApi){
-		var vm = this;
+        vm.loadList = function(forceRefresh) {
+            eliteApi.getLeagueData(forceRefresh).then(function(data) {
+                vm.teams = data.teams;
+            }).finally(function(){
+                $scope.$broadcast('scroll.refreshComplete');
+            });
+        };
 
-		eliteApi.getLeagueData().then(function(data){
-			vm.teams = data.teams;
-		});
-		
-	};
-
-	app.controller("teamsCtrl",["eliteApi",teamsCtrl]);
-}());
+        vm.loadList(false);
+    };
+})();

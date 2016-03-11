@@ -25,8 +25,9 @@
 
 
     app.config(function($ionicConfigProvider) {
-      
+
         $ionicConfigProvider.backButton.previousTitleText(false).text(' ');
+        $ionicConfigProvider.tabs.position('bottom');
     });
 
     app.config(function ($stateProvider, $urlRouterProvider) {
