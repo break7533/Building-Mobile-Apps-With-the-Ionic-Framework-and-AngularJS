@@ -1,8 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('eliteApp')
-    .controller('myTeamsCtrl', ['$state', 'myTeamsService', 'eliteApi', myTeamsCtrl]);
+    angular.module('eliteApp').controller('myTeamsCtrl', ['$state', 'myTeamsService', 'eliteApi', myTeamsCtrl]);
 
     function myTeamsCtrl($state, myTeamsService, eliteApi) {
         var vm = this;

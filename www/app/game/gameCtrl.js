@@ -1,17 +1,14 @@
-(function(){
+(function () {
+    'use strict';
 
-	"use strict";
+    angular.module('eliteApp').controller('gameCtrl', ['$stateParams', 'eliteApi', gameCtrl]);
 
-	var app = angular.module("eliteApp");
+    function gameCtrl($stateParams, eliteApi) {
+        var vm = this;
 
-	var gameCtrl = function(eliteApi, $stateParams){
-		var vm = this;
-
-		var gameId = Number($stateParams.id);
-		var data = eliteApi.getLeagueData();
-
-		vm.game = _.find(data.games, {"id": gameId});
-	};
-
-	app.controller("gameCtrl",["eliteApi","$stateParams", gameCtrl]);
-}());
+        var gameId = Number($stateParams.id);
+        eliteApi.getLeagueData().then(function(data){
+            vm.game = _.find(data.games, { "id": gameId });
+        });
+    };
+})();

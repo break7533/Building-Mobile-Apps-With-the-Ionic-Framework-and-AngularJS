@@ -1,28 +1,6 @@
 (function () {
 
-    var app = angular.module("eliteApp", ["ionic", "angular-cache"]);
-
-    app.run(function ($ionicPlatform,CacheFactory) {
-        $ionicPlatform.ready(function(){
-            //Hide the accessory bar by default (remove this to show the acessory bar above for form inputs)
-            if (window.cordova && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.hideKeyboardAcessoryBar(true);
-            };
-
-            if(window.Statusbar){
-                //org.apache.cordova.statusbar required
-                Statusbar.styleDefault();
-            };
-
-            CacheFactory("leagueDataCache",{storageMode:"localStorage",maxAge:10000, deleteOnExpire:"aggressive"});
-            CacheFactory("leaguesCache",{storageMode:"localStorage",maxAge:10000, deleteOnExpire: "aggressive"});
-            CacheFactory("myTeamsCache",{storageMode:"localStorage"});
-            CacheFactory("staticCache",{storageMode:"localStorage"});
-
-        });
-
-    });
-
+    var app = angular.module("eliteApp", ["ionic", "angular-cache","uiGmapgoogle-maps"]);
 
     app.config(function($ionicConfigProvider) {
 
@@ -108,6 +86,15 @@
             }
         })
 
+        .state("app.location-map", {
+            url:"/location-map/:id",
+            views:{
+                "mainContent": {
+                    templateUrl:"app/locations/location-map.html"
+                }
+            }
+        })
+
         .state("app.rules", {
             url: "/rules",
             views: {
@@ -120,7 +107,28 @@
         ;
 
         //if not of te above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise("/app/teams");
+        $urlRouterProvider.otherwise("/home/leagues");
+
+    });
+
+    app.run(function ($ionicPlatform,CacheFactory) {
+        $ionicPlatform.ready(function(){
+            //Hide the accessory bar by default (remove this to show the acessory bar above for form inputs)
+            if (window.cordova && window.cordova.plugins.Keyboard) {
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            };
+
+            if(window.Statusbar){
+                //org.apache.cordova.statusbar required
+                Statusbar.styleDefault();
+            };
+
+            CacheFactory("leagueDataCache",{storageMode:"localStorage",maxAge:10000, deleteOnExpire:"aggressive"});
+            CacheFactory("leaguesCache",{storageMode:"localStorage",maxAge:10000, deleteOnExpire: "aggressive"});
+            CacheFactory("myTeamsCache",{storageMode:"localStorage"});
+            CacheFactory("staticCache",{storageMode:"localStorage"});
+
+        });
 
     });
 

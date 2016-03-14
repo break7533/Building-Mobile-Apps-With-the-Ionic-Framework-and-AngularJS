@@ -1,0 +1,5 @@
+Bugs conhecidos
+
+Algum problema que nao consigo descobrir o que se passa em relação ao registo em cache
+
+o programa vai buscar os dados de uma liga e nunca mais quer saber e vai sempre buscar a mesma liga ate se fazer refresh a pagina! acho qe esta relacionado com o facto de isto fazer um tipo de cache agressive, dunno

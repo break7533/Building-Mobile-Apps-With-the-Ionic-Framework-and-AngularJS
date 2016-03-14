@@ -1,15 +1,13 @@
-(function(){
+(function () {
+    'use strict';
 
-	"use strict";
+    angular.module('eliteApp').controller('standingsCtrl', ['eliteApi', standingsCtrl]);
 
-	var app = angular.module("eliteApp");
-
-	var standingsCtrl = function(eliteApi){
-		var vm = this;
-
-		var data= eliteApi.getLeagueData();
-		vm.standings = data.standings;
-	};
-
-	app.controller("standingsCtrl",["eliteApi",standingsCtrl]);
-}());
+    function standingsCtrl(eliteApi) {
+        var vm = this;
+        
+        eliteApi.getLeagueData().then(function(data){
+            vm.standings = data.standings;
+        });
+    };
+})();
