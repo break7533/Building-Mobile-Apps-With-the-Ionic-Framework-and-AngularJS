@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.elitescheduleapp700605" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>EliteScheduleApp</name>
+  <name>EliteSchedule</name>
   <description>
-        An Ionic Framework and Cordova project.
+        The Elite Schedule awesome app.
     </description>
-  <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
+  <author email="luis.lopes@armissourcing.pt" href="http://ionicframework/">
+      Luis Lopes
     </author>
   <content src="main.html"/>
   <access origin="*"/>
@@ -16,6 +16,7 @@
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
   <preference name="SplashScreenDelay" value="3000"/>
+  <preference name="fullscreen" value="false"/>
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>

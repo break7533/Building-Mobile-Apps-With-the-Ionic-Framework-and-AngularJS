@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/ionic.app.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -21,6 +21,7 @@
 <script src="lib/angular-cache/dist/angular-cache.min.js"></script>
 <script src="lib/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
 <script src="lib/angular-google-maps/dist/angular-google-maps.min.js"></script>
+<script src="lib/showdown/dist/showdown.min.js"></script>
 
 
 <!-- your app's js -->
@@ -34,11 +35,13 @@
 <script src="app/game/gameCtrl.js"></script>
 <script src="app/home/my-teams-ctrl.js"></script>
 <script src="app/locations/location-mapCtrl.js"></script>
+<script src="app/rules/rulesCtrl.js"></script>
 
 
 <!-- Services -->
 <script src="app/services/eliteApi.js"></script>
 <script src="app/services/myTeamsService.js"></script>
+<script src="app/directives/markdown.js"></script>
 </head>
 
 <body ng-app="eliteApp">

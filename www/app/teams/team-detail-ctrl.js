@@ -8,7 +8,7 @@
         team = null,
         leagueData = null;
 
-        console.log("$stateParams", $stateParams);
+       
         vm.teamId = Number($stateParams.id);
 
         eliteApi.getLeagueData().then(function(data){

@@ -35,3 +35,8 @@ map {
     padding-left: 3px;
     padding-right: 3px;
 }
+
+.allow-bullets ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
