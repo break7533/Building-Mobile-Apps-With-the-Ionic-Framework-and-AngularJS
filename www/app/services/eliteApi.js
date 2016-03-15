@@ -95,8 +95,9 @@
                         $ionicLoading.hide();
                         deferred.resolve(data);
                     })
-                    .error(function() {
+                    .error(function(response) {
                         console.log("Error while making HTTP call.");
+                        console.log(JSON.parse(response));
                         $ionicLoading.hide();
                         deferred.reject();
                     });
